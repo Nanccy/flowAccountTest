@@ -1,0 +1,13 @@
+<sub-header [subHeading]="subHeading"></sub-header>
+
+<form class="example-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Repository name</mat-label>
+    <input matInput placeholder="enter repository name here..." [formControl]="searchControl" [value]="searchName">
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" >Search</button>
+</form>
+
+<repository-search-list [searchSubmitted]="searchSubmitted" [repositoryList]="repositoryList"></repository-search-list>
+
+<p *ngIf="error">{{ error }}. Please go back to the <a routerLink="/">homepage</a> and try again.</p>
